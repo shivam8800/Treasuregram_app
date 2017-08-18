@@ -1,3 +1,11 @@
 .hover:hover{
 	box-shadow: 1px 1px 10px #ccc;
 }
+#imageinput{
+	display: flex;
+    flex-direction: row;
+    padding-left: 1.5%;
+}
+.row{
+    margin: 0.8%;
+}

@@ -15,12 +15,15 @@ def detail(request, id):
 
 
 def post(request):
-	if request.method == 'POST':
-		form = TreasureForm(request.POST, request.FILES)
-		# import ipdb; ipdb.set_trace()
-		if form.is_valid():
-			treasure = form.save(commit=False)
-			form.save()
+	if request.method == 'POST' and request.FILES['Image']:
+		name1 = request.POST['name']
+		value1 = request.POST['value']
+		material1 = request.POST['material']
+		location1 = request.POST['location']
+		image1 = request.FILES['Image']
+		treasure = Treasure.objects.create(name=name1, value=value1, material=material1, location=location1, image=image1)
+		pprint(treasure)
 		return redirect('index')
-	form = TreasureForm()
-	return render(request, 'post_treasure.html', {'form': form})
+	else:	
+		form = TreasureForm()
+		return render(request, 'post_treasure.html', {'form': form})
