@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!doctype>
+<html>
+	<head>
+		<title>treasure</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<style type="text/css">
+			.hover:hover{
+				box-shadow: 2px 2px 40px 2px #999;
+			}
+			.hover{
+				transition: 0.5s;
+			}
+		</style>
+	</head>
+	<body style="background-color: #dfe3ee">
+	<nav class="navbar navbar-default navbar-static-top text-center" style="background-color: #fff;">
+		<a href='{% url "index" %}'>
+			<img src="{% static 'images/logo.png' %}" alt="TreasureGram" height="100px">
+		</a>
+	</nav>
+	<main class="container" role="main">
+		{% block content %}
+		{% endblock %}
+	</main>
+		<footer class="navbar navbar-default navbar-fixed-bottom text-center" style="background-color: #fff; padding: 0px;">
+		<img src="{% static 'images/treasuregram.png' %}" alt="TreasureGram" width="70" style="border-radius: 50px;">
+		@TREASUREGRAM 2017
+		<img src="{% static 'images/treasuregram.png' %}" alt="TreasureGram" width="70" style="border-radius: 50px;">
+	</footer>
+</body>
+</html>

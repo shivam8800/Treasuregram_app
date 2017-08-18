@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+	<a href="post_treasure/"><button class="col-md-4" style="margin-left: 30px; border: none; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; background-color: #777; color: black; width: 1120px; margin-top: -5px; border-radius: 25px;">post</button></a>
+</div>
+<br>
+<div class="row">
+	{% for treasure in treasures %}
+	<div class="col-md-4">
+		<a href="treasure/{{treasure.id}}/">
+			<div class="treasure panel panel-default hover">
+				<div class="panel-heading">
+					<center><h2 class="panel-title"><b>{{ treasure.name }}</b></h2></center>
+				</div>
+				<div class="treasure-photo">
+					<center><img src="{{ treasure.image }}" height="150px;" style="padding: 5px;"></center>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% if forloop.counter|divisibleby:3 %}
+		<div class="row"></div>
+	{% endif %}
+{% endfor %}
+</div>
+
+<div style="height: 100px;"> 
+
+
+</div>
+
+{% endblock %}

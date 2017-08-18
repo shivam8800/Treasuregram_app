@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="treasure panel penal-default hover" style="padding: 10px; border-radius: 10px; width: 300px; display: flex; justify-content: center; align-items: center; flex-direction: column; cursor: pointer;">
+	<div class="panel-heading">
+		<div class="panel-title">
+			<h3 style="font-size: 27px;"><b>{{ treasure.name }}</b></h3>
+		</div>
+	</div>
+	<div class="panel--body">
+		<div class="treasure-photo-detail">
+			<img src="{{ treasure.image.url }}" height="150px;">
+		</div>
+		<table class="treasure-table">
+			<tr>
+				<th><img src="{% static 'images/materials-icon.png' %}" height="30px;">Material:</th>
+				<td>{{ treasure.material }}</td>
+			</tr>
+			<tr>
+				<th><img src="{% static 'images/value.png' %}" height="30px;">Value:</th>
+				<td>{{ treasure.value }}</td>
+			</tr>
+			<tr>
+				<th><img src="{% static 'images/location.png' %}" height="30px;">Location:</th>
+				<td>{{ treasure.location }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}
